@@ -126,7 +126,35 @@ void cubeLine(
   byte z2,
   rgb_t rgb) {
 
-  //FIXME
+  byte x;
+  byte y; 
+  byte z;
+  x = x1;
+  y = y1;
+  z = z1;
+  cubeSet(x,y,z,rgb);  
+  if (x < x2) x++;
+  if (x > x2) x--;
+  if (y < y2) y++;
+  if (y > y2) y--;
+  if (z < z2) z++;
+  if (z > z2) z--;
+  cubeSet(x,y,z,rgb); 
+  if (x < x2) x++;
+  if (x > x2) x--;
+  if (y < y2) y++;
+  if (y > y2) y--;
+  if (z < z2) z++;
+  if (z > z2) z--;
+  cubeSet(x,y,z,rgb); 
+  if (x < x2) x++;
+  if (x > x2) x--;
+  if (y < y2) y++;
+  if (y > y2) y--;
+  if (z < z2) z++;
+  if (z > z2) z--;
+  cubeSet(x,y,z,rgb); 
+ 
 }
 
 void Cube::shift(

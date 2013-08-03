@@ -171,85 +171,113 @@ void randomPastel()
 
 void loop(void) {
   //return;
-  int _delay = 300;  
+  int _delay = 50; 
+  int _repeats = random(10);
+ rgb_t SILVER =  RGB(227, 228, 229); 
+  for(int repeater=0;repeater<_repeats;repeater++) { 
+      for (int z=0;z<=3;z++) {
+          cube.all(SILVER);
+          cube.line(0,0,z,3,0,z,RED);
+          delay(_delay);
+      }
+      for (int y=1;y<=3;y++) {
+          cube.all(SILVER);
+          cube.line(0,y,3,3,y,3,RED);
+          delay(_delay);
+      }
+      for (int z=2;z>=0;z--) {
+          cube.all(SILVER);
+          cube.line(0,3,z,3,3,z,RED);
+          delay(_delay);
+      }
+      for (int y=2;y>=0;y--) {
+          cube.all(SILVER);
+          cube.line(0,y,0,3,y,0,RED);
+          delay(_delay);
+      }
+  }
+  cube.all(BLACK);
+  _delay = 300; 
   rgb_t rgb;
-  rgb_t SILVER =  RGB(227, 228, 229);
+  _repeats = random(10);
   rgb = SILVER;
-  for (int x= 0; x<10; x++) {
+  for (int x= 0; x<_repeats; x++) {
       cube.all(RED);
-      myCubeLine(0,0,0,3,3,3,rgb);
+      cube.line(0,0,0,3,3,3,rgb);
       delay(_delay);
       cube.all(RED);
-      myCubeLine(0,0,3,3,3,0,rgb);
+      cube.line(0,0,3,3,3,0,rgb);
        delay(_delay);
       cube.all(RED);
-      myCubeLine(3,0,3,0,3,0,rgb);
+      cube.line(3,0,3,0,3,0,rgb);
        delay(_delay);
       cube.all(RED);
-      myCubeLine(0,3,3,3,0,0,rgb);
+      cube.line(0,3,3,3,0,0,rgb);
       delay(_delay);
   }
   _delay = 150; 
+   _repeats = random(10);
   rgb = RGB(random(255), random(255), random(255));
-  for (int x= 0; x<10; x++) {
+  for (int x= 0; x<_repeats; x++) {
       cube.all(BLACK);
-      myCubeLine(0,0,0,3,3,3,rgb);
+      cube.line(0,0,0,3,3,3,rgb);
       delay(_delay);
       cube.all(BLACK);
-      myCubeLine(0,0,3,3,3,0,rgb);
+      cube.line(0,0,3,3,3,0,rgb);
        delay(_delay);
       cube.all(BLACK);
-      myCubeLine(3,0,3,0,3,0,rgb);
+      cube.line(3,0,3,0,3,0,rgb);
        delay(_delay);
       cube.all(BLACK);
-      myCubeLine(0,3,3,3,0,0,rgb);
+      cube.line(0,3,3,3,0,0,rgb);
       delay(_delay);
       cube.all(BLACK);  
       rgb = RGB(random(255), random(255), random(255));
   }
-  for (int x= 0; x<5; x++) {
+  _repeats = random(10);
+  for (int x= 0; x<_repeats; x++) {
   cube.all(RED);
-  myCubeLine(0,0,0,3,0,0,SILVER);
-  myCubeLine(3,0,0,3,3,0,SILVER);
-  myCubeLine(3,3,0,0,3,0,SILVER);
-  myCubeLine(0,3,0,0,0,0,SILVER);
-  myCubeLine(0,0,3,3,0,3,SILVER);
-  myCubeLine(3,0,3,3,3,3,SILVER);
-  myCubeLine(3,3,3,0,3,3,SILVER);
-  myCubeLine(0,3,3,0,0,3,SILVER);
-  myCubeLine(0,0,0,0,0,3,SILVER);
-  myCubeLine(3,0,0,3,0,3,SILVER);
-  myCubeLine(3,3,0,3,3,3,SILVER);
-  myCubeLine(0,3,0,0,3,3,SILVER);
+  cube.line(0,0,0,3,0,0,SILVER);
+  cube.line(3,0,0,3,3,0,SILVER);
+  cube.line(3,3,0,0,3,0,SILVER);
+  cube.line(0,3,0,0,0,0,SILVER);
+  cube.line(0,0,3,3,0,3,SILVER);
+  cube.line(3,0,3,3,3,3,SILVER);
+  cube.line(3,3,3,0,3,3,SILVER);
+  cube.line(0,3,3,0,0,3,SILVER);
+  cube.line(0,0,0,0,0,3,SILVER);
+  cube.line(3,0,0,3,0,3,SILVER);
+  cube.line(3,3,0,3,3,3,SILVER);
+  cube.line(0,3,0,0,3,3,SILVER);
   delay(1000);
   cube.all(BLACK);
-  myCubeLine(0,0,0,3,0,0,SILVER);
-  myCubeLine(3,0,0,3,3,0,SILVER);
-  myCubeLine(3,3,0,0,3,0,SILVER);
-  myCubeLine(0,3,0,0,0,0,SILVER);
-  myCubeLine(0,0,3,3,0,3,SILVER);
-  myCubeLine(3,0,3,3,3,3,SILVER);
-  myCubeLine(3,3,3,0,3,3,SILVER);
-  myCubeLine(0,3,3,0,0,3,SILVER);
-  myCubeLine(0,0,0,0,0,3,SILVER);
-  myCubeLine(3,0,0,3,0,3,SILVER);
-  myCubeLine(3,3,0,3,3,3,SILVER);
-  myCubeLine(0,3,0,0,3,3,SILVER);
+  cube.line(0,0,0,3,0,0,SILVER);
+  cube.line(3,0,0,3,3,0,SILVER);
+  cube.line(3,3,0,0,3,0,SILVER);
+  cube.line(0,3,0,0,0,0,SILVER);
+  cube.line(0,0,3,3,0,3,SILVER);
+  cube.line(3,0,3,3,3,3,SILVER);
+  cube.line(3,3,3,0,3,3,SILVER);
+  cube.line(0,3,3,0,0,3,SILVER);
+  cube.line(0,0,0,0,0,3,SILVER);
+  cube.line(3,0,0,3,0,3,SILVER);
+  cube.line(3,3,0,3,3,3,SILVER);
+  cube.line(0,3,0,0,3,3,SILVER);
   delay(200);
   }
   cube.all(BLACK);
-  myCubeLine(0,0,0,3,0,0,BLUE);
-  myCubeLine(3,0,0,3,3,0,BLUE);
-  myCubeLine(3,3,0,0,3,0,BLUE);
-  myCubeLine(0,3,0,0,0,0,BLUE);
-  myCubeLine(0,0,3,3,0,3,BLUE);
-  myCubeLine(3,0,3,3,3,3,BLUE);
-  myCubeLine(3,3,3,0,3,3,BLUE);
-  myCubeLine(0,3,3,0,0,3,BLUE);
-  myCubeLine(0,0,0,0,0,3,BLUE);
-  myCubeLine(3,0,0,3,0,3,BLUE);
-  myCubeLine(3,3,0,3,3,3,BLUE);
-  myCubeLine(0,3,0,0,3,3,BLUE);
+  cube.line(0,0,0,3,0,0,BLUE);
+  cube.line(3,0,0,3,3,0,BLUE);
+  cube.line(3,3,0,0,3,0,BLUE);
+  cube.line(0,3,0,0,0,0,BLUE);
+  cube.line(0,0,3,3,0,3,BLUE);
+  cube.line(3,0,3,3,3,3,BLUE);
+  cube.line(3,3,3,0,3,3,BLUE);
+  cube.line(0,3,3,0,0,3,BLUE);
+  cube.line(0,0,0,0,0,3,BLUE);
+  cube.line(3,0,0,3,0,3,BLUE);
+  cube.line(3,3,0,3,3,3,BLUE);
+  cube.line(0,3,0,0,3,3,BLUE);
   delay(5000);
   _delay = 10;
   _delay = 150;
@@ -260,7 +288,8 @@ void loop(void) {
      randomPastel();
      delay(10);
   };  
-  for (int x= 0; x<5; x++) {
+  _repeats = random(10);
+  for (int x= 0; x<_repeats; x++) {
   cube.all(BLACK);  
   cube.setplane(Z, 3, RED); 
   delay(_delay); delay(_delay);
